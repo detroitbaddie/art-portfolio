@@ -1,12 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f5f2eb">
-<meta name="description"
-      content="BY GRACE — Artwork, creations and everything in between.">
+<meta name="description" content="BY GRACE — Artwork, creations and everything in between.">
 <title>BY GRACE — Artist Portfolio</title>
 
 <style>
@@ -17,13 +16,9 @@
   --line: #d6d0c7;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -33,28 +28,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+body.modal-open { overflow: hidden; }
 
-button {
-  font: inherit;
-}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  padding: 25px 6%;
+  padding: 24px 6%;
   border-bottom: 1px solid var(--line);
 }
 
 .logo {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 900;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.6px;
 }
 
 nav {
@@ -62,24 +53,22 @@ nav {
   gap: 20px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
 }
 
-nav a:hover {
-  opacity: .55;
-}
+nav a:hover { opacity: .6; }
 
 .hero {
-  padding: 95px 6% 90px;
   max-width: 1200px;
   margin: auto;
+  padding: 95px 6% 85px;
 }
 
 .eyebrow {
+  color: var(--muted);
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
 h1 {
@@ -108,10 +97,11 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 14px;
-  padding: 18px 30px;
-  border-radius: 50px;
   background: var(--ink);
   color: white;
+  padding: 18px 30px;
+  border: 0;
+  border-radius: 50px;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -125,25 +115,25 @@ h1 {
 }
 
 .arrow {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
   flex-shrink: 0;
 }
 
 .section {
-  padding: 65px 6%;
   max-width: 1200px;
   margin: auto;
+  padding: 65px 6%;
   scroll-margin-top: 20px;
 }
 
 .section-top {
   display: flex;
-  align-items: end;
   justify-content: space-between;
+  align-items: end;
   gap: 15px;
-  padding-bottom: 22px;
   border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
   margin-bottom: 30px;
 }
 
@@ -155,61 +145,53 @@ h2 {
 }
 
 .number {
-  font-size: 12px;
   color: var(--muted);
+  font-size: 12px;
 }
 
+/* SQUARE ART GALLERY */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
 }
 
-.artwork {
-  min-width: 0;
-}
+.artwork { min-width: 0; }
 
 .art-image {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
+  border: 0;
+  padding: 0;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #e5d7c9;
-}
-
-.artwork:nth-child(2) .art-image {
-  background: #d5dad0;
-}
-
-.artwork:nth-child(3) .art-image {
-  background: #dcc8c0;
-}
-
-.artwork:nth-child(4) .art-image {
-  background: #d4d0dd;
+  background: #e4ddd3;
+  position: relative;
 }
 
 .art-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform .35s ease;
+  transition: transform .4s ease;
 }
 
 .art-image:hover img {
-  transform: scale(1.04);
+  transform: scale(1.045);
 }
 
-.placeholder {
-  font-family: Georgia, serif;
-  font-style: italic;
-  color: #756d65;
-  font-size: 20px;
-  text-align: center;
-  padding: 15px;
+.art-image::after {
+  content: "VIEW ARTWORK";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 9px 12px;
+  background: rgba(245,242,235,.93);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .6px;
 }
 
 .art-info {
@@ -235,6 +217,7 @@ h2 {
   font-size: 12px;
 }
 
+/* ABOUT */
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -250,6 +233,7 @@ h2 {
   margin: 0 0 20px;
 }
 
+/* SOCIAL LINKS */
 .links {
   display: flex;
   flex-direction: column;
@@ -283,11 +267,6 @@ h2 {
   margin-top: 6px;
 }
 
-.link-card .arrow {
-  width: 22px;
-  height: 22px;
-}
-
 .shop-feature {
   margin-top: 35px;
   padding: 40px 30px;
@@ -300,13 +279,54 @@ h2 {
   font-size: clamp(28px, 5vw, 45px);
   font-weight: 400;
   font-style: italic;
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 .shop-feature p {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.7;
+}
+
+/* FULLSCREEN ARTWORK VIEWER */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(20,19,18,.97);
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 65px 20px 35px;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  display: block;
+  max-width: 95%;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.lightbox-title {
+  font-size: 15px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: max(20px, env(safe-area-inset-top));
+  right: 22px;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 32px;
+  line-height: 1;
+  padding: 8px;
 }
 
 footer {
@@ -321,45 +341,24 @@ footer {
 }
 
 @media (max-width: 600px) {
-  header {
-    padding: 22px 5%;
-  }
+  header { padding: 22px 5%; }
+  .logo { font-size: 15px; }
+  nav { gap: 13px; font-size: 10px; }
 
-  .logo {
-    font-size: 15px;
-  }
+  .hero { padding: 85px 5% 65px; }
+  h1 { letter-spacing: -3px; }
 
-  nav {
-    gap: 13px;
-    font-size: 10px;
-  }
+  .section { padding: 55px 5%; }
+  .gallery { gap: 14px; }
 
-  .hero {
-    padding: 85px 5% 65px;
-  }
+  .art-title { font-size: 13px; }
+  .art-type { font-size: 11px; }
 
-  h1 {
-    letter-spacing: -3px;
-  }
-
-  .section {
-    padding: 55px 5%;
-  }
-
-  .gallery {
-    gap: 14px;
-  }
-
-  .placeholder {
-    font-size: 16px;
-  }
-
-  .art-title {
-    font-size: 13px;
-  }
-
-  .art-type {
-    font-size: 11px;
+  .art-image::after {
+    font-size: 8px;
+    bottom: 7px;
+    right: 7px;
+    padding: 7px;
   }
 
   .about {
@@ -367,9 +366,7 @@ footer {
     gap: 20px;
   }
 
-  .shop-feature {
-    padding: 35px 20px;
-  }
+  .shop-feature { padding: 35px 20px; }
 
   footer {
     flex-direction: column;
@@ -378,9 +375,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
   *, *::before, *::after {
     transition: none !important;
@@ -403,6 +398,7 @@ footer {
 
 <main>
 
+<!-- HOMEPAGE -->
 <section class="hero">
 
   <div class="eyebrow">
@@ -429,7 +425,6 @@ footer {
          fill="none"
          stroke="currentColor"
          stroke-width="2"
-         stroke-linecap="square"
          aria-hidden="true">
       <path d="M5 19L19 5M8 5h11v11"/>
     </svg>
@@ -437,6 +432,7 @@ footer {
 
 </section>
 
+<!-- FINISHED ARTWORK ONLY -->
 <section class="section" id="work">
 
   <div class="section-top">
@@ -444,80 +440,103 @@ footer {
       <div class="eyebrow">Selected pieces</div>
       <h2>The Gallery.</h2>
     </div>
-
-    <span class="number">01 / 04</span>
+    <span class="number">01 / 03</span>
   </div>
 
   <div class="gallery">
 
+    <!-- ARTWORK 1 -->
     <article class="artwork">
-      <div class="art-image">
-        <div class="placeholder">
-          Artwork 01
-        </div>
-      </div>
+
+      <button class="art-image"
+              type="button"
+              data-image="IMG_9114.jpeg"
+              data-title="Coastal Portrait"
+              aria-label="View Coastal Portrait">
+
+        <img src="./IMG_9114.jpeg"
+             alt="Painted portrait of a woman in a coastal setting"
+             loading="lazy">
+
+      </button>
 
       <div class="art-info">
         <div>
-          <div class="art-title">Untitled 01</div>
-          <div class="art-type">Original artwork</div>
+          <div class="art-title">
+            Coastal Portrait
+          </div>
+          <div class="art-type">
+            Painting
+          </div>
         </div>
         <span class="art-index">01</span>
       </div>
+
     </article>
 
+    <!-- ARTWORK 2 -->
     <article class="artwork">
-      <div class="art-image">
-        <div class="placeholder">
-          Artwork 02
-        </div>
-      </div>
+
+      <button class="art-image"
+              type="button"
+              data-image="IMG_2105.jpeg"
+              data-title="City Study"
+              aria-label="View City Study">
+
+        <img src="./IMG_2105.jpeg"
+             alt="Colorful painting of buildings"
+             loading="lazy">
+
+      </button>
 
       <div class="art-info">
         <div>
-          <div class="art-title">Untitled 02</div>
-          <div class="art-type">Original artwork</div>
+          <div class="art-title">
+            City Study
+          </div>
+          <div class="art-type">
+            Painting
+          </div>
         </div>
         <span class="art-index">02</span>
       </div>
+
     </article>
 
+    <!-- ARTWORK 3 -->
     <article class="artwork">
-      <div class="art-image">
-        <div class="placeholder">
-          Artwork 03
-        </div>
-      </div>
+
+      <button class="art-image"
+              type="button"
+              data-image="IMG_2030.jpeg"
+              data-title="Miniature Painting"
+              aria-label="View Miniature Painting">
+
+        <img src="./IMG_2030.jpeg"
+             alt="Small hand-painted artwork"
+             loading="lazy">
+
+      </button>
 
       <div class="art-info">
         <div>
-          <div class="art-title">Untitled 03</div>
-          <div class="art-type">Original artwork</div>
+          <div class="art-title">
+            Miniature Painting
+          </div>
+          <div class="art-type">
+            Miniature artwork
+          </div>
         </div>
         <span class="art-index">03</span>
       </div>
-    </article>
 
-    <article class="artwork">
-      <div class="art-image">
-        <div class="placeholder">
-          Artwork 04
-        </div>
-      </div>
-
-      <div class="art-info">
-        <div>
-          <div class="art-title">Untitled 04</div>
-          <div class="art-type">Original artwork</div>
-        </div>
-        <span class="art-index">04</span>
-      </div>
     </article>
 
   </div>
 
 </section>
 
+<!-- ABOUT THE ARTIST -->
 <section class="section about" id="about">
 
   <div>
@@ -530,9 +549,8 @@ footer {
   </div>
 
   <div class="about-text">
-    <p>
-      Hi, I'm Grace!
-    </p>
+
+    <p>Hi, I'm Grace!</p>
 
     <p>
       I'm an independent artist who loves
@@ -552,10 +570,12 @@ footer {
       You can find my latest creations
       and connect with me below.
     </p>
+
   </div>
 
 </section>
 
+<!-- SOCIALS AND SHOP -->
 <section class="section" id="links">
 
   <div class="section-top">
@@ -585,6 +605,7 @@ footer {
            aria-hidden="true">
         <path d="M5 19L19 5M8 5h11v11"/>
       </svg>
+
     </a>
 
     <a class="link-card"
@@ -607,6 +628,7 @@ footer {
            aria-hidden="true">
         <path d="M5 19L19 5M8 5h11v11"/>
       </svg>
+
     </a>
 
     <a class="link-card"
@@ -629,6 +651,7 @@ footer {
            aria-hidden="true">
         <path d="M5 19L19 5M8 5h11v11"/>
       </svg>
+
     </a>
 
   </div>
@@ -672,6 +695,86 @@ footer {
   <span>© 2026 BY GRACE</span>
   <span>ARTWORK, CREATIONS & EVERYTHING IN BETWEEN ♡</span>
 </footer>
+
+<!-- FULLSCREEN ART VIEWER -->
+<div class="lightbox"
+     id="lightbox"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Artwork viewer"
+     aria-hidden="true">
+
+  <button class="close-lightbox"
+          type="button"
+          aria-label="Close artwork viewer">
+    &times;
+  </button>
+
+  <img id="lightboxImage"
+       src=""
+       alt="">
+
+  <div class="lightbox-title"
+       id="lightboxTitle">
+  </div>
+
+</div>
+
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxTitle = document.getElementById("lightboxTitle");
+const closeButton = document.querySelector(".close-lightbox");
+
+let previousFocus = null;
+
+document.querySelectorAll(".art-image").forEach(button => {
+  button.addEventListener("click", () => {
+    previousFocus = document.activeElement;
+
+    lightboxImage.src = "./" + button.dataset.image;
+    lightboxImage.alt = button.querySelector("img").alt;
+    lightboxTitle.textContent = button.dataset.title;
+
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    closeButton.focus();
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  lightboxImage.removeAttribute("src");
+
+  if (previousFocus) {
+    previousFocus.focus();
+  }
+}
+
+closeButton.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (!lightbox.classList.contains("open")) return;
+
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
+
+  if (event.key === "Tab") {
+    event.preventDefault();
+    closeButton.focus();
+  }
+});
+</script>
 
 </body>
 </html>
